@@ -9,7 +9,7 @@ const ibmPlexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Andrew Tran's Page",
+  title: "Camryn Stuhlmuller Portfolio",
   description: "Portfolio Page",
 };
 
