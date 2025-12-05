@@ -5,74 +5,43 @@
 @tailwind utilities;
 
 :root {
-  --background: #FFF4CC;
-  --foreground: #FFF4CC;
+  --background: #cde3fb;
+  --foreground: #0f3f6a;
+  --accent: #3f8cd6;
+  --muted: #4a709a;
 }
 
 body {
-  background: #FFF4CC;
-  color: #5A3318;
-  font-family: var(--font-ibm-plex-mono), 'IBM Plex Mono', monospace;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-manrope), 'Manrope', system-ui, -apple-system, sans-serif;
   overflow-x: hidden;
+  margin: 0;
 }
 
 html, body {
   height: 100%;
-  margin: 0;
-}
-
-main {
-  scroll-snap-type: y mandatory;
-  overflow-y: scroll;
-}
-
-.container {
-  scroll-snap-align: start;
 }
 
 html {
   scroll-behavior: smooth;
 }
 
-/* Sidebar Tab Styling */
-.tab-link {
-  position: relative;
-  display: inline-block;
-  padding: 0.25rem 0.125rem; /* subtle vertical padding */
-  color: #5A3318;
-  font-weight: 500;
-  cursor: pointer;
-  transition: color 200ms ease;
-  border: none; /* no box */
+.handwritten {
+  font-family: var(--font-caveat), 'Caveat', cursive;
 }
 
-.tab-link:hover,
-.tab-link:focus-visible {
-  color: #d97706; /* red text on hover */
-  outline: none;
+.pill {
+  border-radius: 999px;
+  padding: 0.6rem 1.4rem;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--foreground);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
+  transition: transform 200ms ease, box-shadow 200ms ease;
 }
 
-/* Active tab state */
-.tab-link[aria-current="page"] {
-  color: #d97706;
-}
-
-/* Underline swoosh */
-.tab-link::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -2px;
-  height: 2px;
-  width: 100%;
-  background: #d97706;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 350ms ease;
-}
-
-.tab-link:hover::after,
-.tab-link:focus-visible::after,
-.tab-link[aria-current="page"]::after {
-  transform: scaleX(1); /* swoosh to the right */
+.pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 16px rgba(0, 0, 0, 0.16);
 }

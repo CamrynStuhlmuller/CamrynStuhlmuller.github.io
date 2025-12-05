@@ -1,131 +1,165 @@
 "use client";
-// Test
-// AboutMeGallery component removed
-import { useState } from "react";
-import ProfileGrid from "./components/GridSection";
-import ResearchExperience from "./components/ResearchExp";
 
-type TabKey = "about" | "publications";
+const socials = [
+  { label: "TikTok", href: "#", icon: TikTokIcon },
+  { label: "Instagram", href: "#", icon: InstagramIcon },
+  { label: "LinkedIn", href: "#", icon: LinkedinIcon },
+];
+
+function TikTokIcon() {
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      className="h-6 w-6 fill-current"
+    >
+      <path d="M19.4 7.8c-1.4-.2-2.6-.8-3.7-1.7v7.8c0 3.7-3 6.6-6.7 6.6A6.7 6.7 0 0 1 2.4 14 6.7 6.7 0 0 1 7.6 7v3.4c-.8.5-1.4 1.4-1.4 2.4 0 1.6 1.3 2.9 3 2.9 1.6 0 3-1.3 3-3V2.5h3c.2 1.6 1.4 2.9 3 3.1v2.2z" />
+    </svg>
+  );
+}
+
+function InstagramIcon() {
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      className="h-6 w-6 fill-none stroke-current"
+      strokeWidth="1.6"
+    >
+      <rect x="3.5" y="3.5" width="17" height="17" rx="5" />
+      <circle cx="12" cy="12" r="4" />
+      <circle cx="17.5" cy="6.5" r="1.1" className="fill-current stroke-none" />
+    </svg>
+  );
+}
+
+function LinkedinIcon() {
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      className="h-6 w-6 fill-current"
+    >
+      <rect x="3" y="9" width="3.2" height="11" rx="0.6" />
+      <rect x="9" y="9" width="3.2" height="11" rx="0.6" />
+      <path d="M9 11.7c0-2 1.6-3.7 3.7-3.7 1.2 0 2 .4 2.6 1.1V9h3.2v11h-3.2v-6c0-1.3-.7-2.1-1.7-2.1-1 0-1.6.8-1.6 2.1v6H9v-11z" />
+      <circle cx="4.6" cy="5.2" r="1.6" />
+    </svg>
+  );
+}
 
 export default function Home() {
-  const [activeTab, setActiveTab] = useState<TabKey>("about");
-
   return (
-    <main className="flex flex-col md:flex-row min-h-screen bg-[#FFF4CC] text-[#5A3318] md:overflow-hidden max-w-7xl mx-auto">
-      {/* Profile Info Column - Non-scrollable */}
-      <div className="w-full md:w-1/4 md:min-w-[300px] px-6 md:pl-16 md:pr-10 pt-12 md:pt-24 pb-6 bg-[#FFF4CC] md:sticky md:top-0 md:self-start">
-        <div className="w-full">
-          <ProfileGrid />
+    <main className="min-h-screen flex flex-col bg-[var(--background)] text-[var(--foreground)]">
+      <header className="w-full px-4 md:px-6 pt-6 pb-8 mb-16 md:mb-20 bg-[var(--background)]">
+        <div className="max-w-7xl mx-auto flex items-center gap-6 justify-between">
+          <span className="handwritten text-2xl text-[#1f3556]">@cammstuhl</span>
+          <nav className="flex-1 flex items-center justify-center gap-12 handwritten text-2xl text-[#1f3556]">
+            <a href="/#about" className="hover:text-[var(--accent)] transition-colors">about</a>
+            <a href="/videos" className="hover:text-[var(--accent)] transition-colors">videos</a>
+            <div className="relative group">
+              <a
+                href="/photography"
+                className="hover:text-[var(--accent)] transition-colors"
+              >
+                photography
+              </a>
+              <div className="absolute left-1/2 -translate-x-1/2 top-full pt-2 hidden group-hover:flex group-focus-within:flex flex-col gap-2 bg-[#bcd6f3] text-[#1f3556] px-4 py-3 rounded-xl shadow-lg">
+                <a href="/photography/travel" className="hover:text-[var(--accent)] transition-colors whitespace-nowrap">travel</a>
+                <a href="/photography/food" className="hover:text-[var(--accent)] transition-colors whitespace-nowrap">food</a>
+              </div>
+            </div>
+            <a href="/#contact" className="hover:text-[var(--accent)] transition-colors">contact</a>
+          </nav>
+          <span className="hidden md:block w-20" />
+        </div>
+      </header>
 
-          {/* Tabs */}
-          <div className="mt-8">
-            <nav className="flex md:flex-col gap-3" aria-label="Sidebar tabs">
-              <button
-                className="tab-link text-left"
-                aria-current={activeTab === "about" ? "page" : undefined}
-                onClick={() => setActiveTab("about")}
-              >
-                About Me
-              </button>
-              <button
-                className="tab-link text-left"
-                aria-current={activeTab === "publications" ? "page" : undefined}
-                onClick={() => setActiveTab("publications")}
-              >
-                Publications
-              </button>
-            </nav>
+      <section className="flex flex-col lg:flex-row items-start gap-8 md:gap-10 px-4 md:px-6 pb-16 lg:pb-20 max-w-7xl mx-auto w-full" id="home">
+        <div className="flex-1">
+          <div className="max-w-xl space-y-5">
+            <div className="space-y-2">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[0.95] text-[#103a66]">
+                Camryn
+                <br />
+                Stuhlmuller
+              </h1>
+              <p className="text-lg md:text-xl text-[#1f3556] font-semibold">
+                Philadelphia, PA &nbsp; | &nbsp; camrynstuhlmuller@gmail.com
+              </p>
+            </div>
+
+            <div className="h-[1px] bg-[#1f3556] opacity-60" />
+
+            <div className="space-y-2">
+              <p className="text-2xl md:text-3xl font-extrabold text-[#3f8cd6]">
+                Photographer &amp; Content Creator
+              </p>
+              <p className="handwritten text-2xl text-[#2a4f7d]">
+                travel + food + lifestyle
+              </p>
+            </div>
+
+            <div className="flex items-center gap-5 pt-3">
+              {socials.map(({ label, href, icon: Icon }) => (
+                <a
+                  key={label}
+                  href={href}
+                  aria-label={label}
+                  className="text-[#103a66] hover:text-[var(--accent)] transition-colors"
+                >
+                  <Icon />
+                </a>
+              ))}
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* Content Column - Scrollable */}
-      <div className="w-full md:w-3/4 px-6 md:pl-12 md:pr-8 pt-8 md:pt-24 pb-12 md:overflow-y-auto md:max-h-screen">
-        {activeTab === "about" && (
-          <div className="mb-12 md:pr-16 md:pl-0">
-            {/* <h1 className="text-2xl font-semibold mb-4">Hello!</h1> */}
-
-            <p className="italic text-xs mb-6 text-right">trying a new fall inspired color scheme, lmk your thoughts</p>
-
-            {/* Research Section */}
-            <div className="mb-8">
-              <h2 className="text-xl font-semibold mb-3">Research</h2>
-              <p className="text-base leading-relaxed mb-4">
-                I'm working on AI Evaluations with the{' '}
-                <a
-                  href="https://evalevalai.com/"
-                  className="text-[#d97706] underline hover:text-[#d97706]"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Evaluating Evaluations (EvalEval) Coalition
-                </a>
-                . Also looking for more projects/collaborators! My interests include:
-              </p>
-              <ul className="list-disc pl-6 space-y-1 mb-6">
-                <li className="text-base leading-relaxed">AI Evaluations</li>
-                <li className="text-base leading-relaxed">AI Control</li>
-                <li className="text-base leading-relaxed">Mechanistic Interpretability</li>
-                <li className="text-base leading-relaxed">Large Language Models in CS Education</li>
-                <li className="text-base leading-relaxed">Educational Technology & Student Development</li>
-              </ul>
+        <div className="flex-1 flex justify-center lg:justify-center w-full">
+          <div className="relative w-full max-w-[23rem] aspect-[3/4] rotate-2 overflow-hidden shadow-2xl border-4 border-white transition-transform duration-[1500ms] ease-out hover:scale-[1.12]">
+            <div className="absolute inset-0 bg-gradient-to-br from-[#f7fafc] via-[#d6e7fb] to-[#c1d8f8]" />
+            <div className="relative z-10 flex items-center justify-center h-full text-[#1f3556] font-semibold">
+              Photo placeholder
             </div>
-
-            {/* Software Engineering Section */}
-            <div className="mb-8">
-              <h2 className="text-xl font-semibold mb-3">Software Engineering</h2>
-              <p className="text-base leading-relaxed mb-4">
-                I'm currently a Software Engineer at{' '}
-                <a
-                  href="https://aws.amazon.com/connect/agent-workspace/"
-                  className="text-[#d97706] underline hover:text-[#d97706]"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  AWS Connect
-                </a>{' '}
-                working on Agent Workspace.
-              </p>
-            </div>
-
-            {/* Hobbies Section */}
-            <div className="mb-8">
-              <h2 className="text-xl font-semibold mb-3">Hobbies</h2>
-              <p className="text-base leading-relaxed mb-4">
-                I love trying new food. I currently have 372 new Beli spots for 2025.
-              </p>
-            </div>
-
-            {/* Commented out News Section
-            <hr className="border-t border-[#dddddd]/70 my-8" />
-            <h3 className="text-lg font-semibold mt-8">Upcoming News</h3>
-            <ul className="list-disc pl-6 mt-2 space-y-1">
-              <li className="text-[#666666]">Invited to speak at OwHacks 2025 on a panel.</li>
-            </ul> */}
-           
-
-
-            {/* <p className="mt-6">
-              See more on my {""}
-              <a
-                href="https://drive.google.com/file/d/1xBCICLQabAc0rc6W8qDyRcZ0eJo2ekN2/view?usp=sharing"
-                className="text-[#d32f2f] underline hover:text-[#b71c1c]"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                CV
-              </a>
-              .
-            </p> */}
           </div>
-        )}
+        </div>
+      </section>
 
-        {activeTab === "publications" && (
-          <div className="md:pr-16 md:pl-0">
-            <ResearchExperience />
+      <section
+        id="about"
+        className="w-full bg-[#0f4b74] text-[#d5e7fa] px-6 md:px-10 lg:px-16 py-16 md:py-20"
+      >
+        <div className="max-w-6xl mx-auto space-y-8">
+          <h2 className="handwritten text-4xl md:text-5xl text-[#a8c7f1]">Hi there!</h2>
+          <div className="grid md:grid-cols-2 gap-10 md:gap-16 text-lg md:text-xl leading-relaxed font-crimson">
+            <p className="md:pr-6">
+              I&apos;ve always had an eye for detail and aesthetics and have been capturing the beauty of life
+              through photography since I was 13.
+              <br />
+              <br />
+              From travel and food to nature and everyday moments, I&apos;m drawn to the details that make life special.
+            </p>
+            <p className="md:pl-6">
+              I&apos;ve expanded from photography into video and content creation, where I share authentic experiences and
+              connect with a like-minded community.
+              <br />
+              <br />
+              I&apos;m always seeking projects that align with my interests and am open to collaborating with brands and
+              creators of all sizes!
+            </p>
           </div>
-        )}
-      </div>
+          <div className="flex justify-end">
+            <p className="handwritten text-2xl text-[#a8c7f1]">have a look around :)</p>
+          </div>
+        </div>
+      </section>
+
+      <footer className="w-full bg-[#6aa5d8] text-[#0f3f6a] px-4 md:px-6 py-4">
+        <div className="max-w-7xl mx-auto flex items-center justify-between">
+          <span className="handwritten text-xl">@ cammstuhl</span>
+          <span className="text-sm font-semibold">© Camryn Stuhlmuller</span>
+        </div>
+      </footer>
     </main>
   );
 }

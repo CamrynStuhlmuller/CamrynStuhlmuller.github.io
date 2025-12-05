@@ -1,10 +1,16 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Mono } from "next/font/google";
+import { Caveat, Manrope } from "next/font/google";
 import "./globals.css";
 
-const ibmPlexMono = IBM_Plex_Mono({
-  weight: ['400', '500', '600', '700'],
-  variable: "--font-ibm-plex-mono",
+const manrope = Manrope({
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-manrope",
+  subsets: ["latin"],
+});
+
+const caveat = Caveat({
+  weight: ["400", "700"],
+  variable: "--font-caveat",
   subsets: ["latin"],
 });
 
@@ -21,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${ibmPlexMono.variable} antialiased`}
+        className={`${manrope.variable} ${caveat.variable} antialiased`}
       >
         {children}
       </body>
